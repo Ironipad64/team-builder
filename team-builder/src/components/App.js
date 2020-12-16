@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
+import styled from "styled-components";
 
 import MemberForm from "./MemberForm"
 
@@ -22,20 +23,39 @@ export default function App() {
   };
 
   const submitForm = () => {
-    const
+    const newMember = {
+      Name: formValues.Name.trim(),
+      email: formValues.email.trim(),
+      role: formValues.role,
+    };
+    if (!newMember.name || !newMember.email || !newMember.role) return;
   };
 
 
 
   return (
-    <div>
-      <h1> Member List </h1>
-      <MemberForm
-        values={formValues}
-      />
-    </div>
+    <StyledApp>
+      <div>
+        <h1> Member List </h1>
+        <MemberForm
+          values={formValues}
+          update={updateForm}
+          submit={submitForm}
+        />
+      </div>
+    </StyledApp>
   )
 }
+
+
+
+const StyledApp = styled.div`
+border: 1px solid black;
+text-align: center;
+box-shadow: 0px 1px 6px -2px #807f7f;
+margin: 100px;
+
+`;
 
 
 

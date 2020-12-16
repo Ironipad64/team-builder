@@ -7,6 +7,3 @@ test('renders learn react link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-<body>
-  <div id="root"></div>
-</body>
